@@ -2,11 +2,12 @@
 #include <iostream>
 #include <iomanip>
 
-CorporateCustomer::CorporateCustomer():Customer()
+CorporateCustomer::CorporateCustomer():
+	Customer(),
+	companyName( "No Name"),
+	companyAddress( "No Address"),
+	customerType( "Corporate")
 {
-	companyName = "No Name";
-	companyAddress = "No Address";
-	customerType = "Corporate";
 }
 
 CorporateCustomer::CorporateCustomer(int cstmrID, string cstmrName, string cstmrAddress, string cstmrTel, string CrprtCstmrCmpnyName, string CrprtCstmrCmpnyAddress):
@@ -17,19 +18,17 @@ CorporateCustomer::CorporateCustomer(int cstmrID, string cstmrName, string cstmr
 {
 }
 
-CorporateCustomer::CorporateCustomer(const CorporateCustomer & CopyCorperateCustomer):Customer(CopyCorperateCustomer)
+CorporateCustomer::CorporateCustomer(const CorporateCustomer & CopyCorperateCustomer):Customer(CopyCorperateCustomer):
+	companyName(getCompanyName()),
+	companyAddress(getCompanyName()),
+	customerType(CopyCorperateCustomer.customerType)
 {
-	companyName = getCompanyName();
-	companyAddress = getCompanyName();
-	customerType = CopyCorperateCustomer.customerType;
 }
 
 CorporateCustomer::~CorporateCustomer()
 {
-
 }
 
-int CorporateCustomer::privilege = 35;
 
 string CorporateCustomer::getCompanyName() const
 {

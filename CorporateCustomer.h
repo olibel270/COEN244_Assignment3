@@ -22,7 +22,7 @@ public:
 private:
 	string companyName;
 	string companyAddress;
-	static int privilege;
+	static int privilege = 35;
 };
 
 #endif
