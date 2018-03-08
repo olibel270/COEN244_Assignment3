@@ -2,7 +2,8 @@
 #define CORPORATECUSTOMER_H_
 
 #include "Customer.h"
-class CorporateCustomer :public Customer{
+class CorporateCustomer :public Customer
+{
 
 public:
 	CorporateCustomer();
