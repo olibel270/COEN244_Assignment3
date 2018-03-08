@@ -10,13 +10,15 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
 //First create a rental management object named COEN244Cars
 
 	CarRentalManagement COEN244Cars;
 
 //Let's quickly create 12 cars, 7 regular cars, and 5 luxury,and add them to the inventory
-	for (unsigned i = 0;i<12;i++){
+	for (unsigned i = 0;i<12;i++)
+	{
 		if (i<7)
 			COEN244Cars.addCar(Car(i+1,"Regular", true));
 		else

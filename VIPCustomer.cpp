@@ -2,35 +2,50 @@
 #include <iostream>
 #include <iomanip>
 
-VIPCustomer::VIPCustomer():Customer(){		//privilege defined statically
-	customerType = "VIP";
+//privilege defined statically
+VIPCustomer::VIPCustomer():																			//Defining Default Constructor
+	Customer(),
+	customerType("VIP")
+{
 }
 
-VIPCustomer::VIPCustomer(int cstmrID, string cstmrName, string cstmrAddress, string cstmrTel):Customer(cstmrID, cstmrName, cstmrAddress, cstmrTel){
-	customerType = "VIP";
+VIPCustomer::VIPCustomer(int cstmrID, string cstmrName, string cstmrAddress, string cstmrTel):		//Defining Constructor
+	Customer(cstmrID, cstmrName, cstmrAddress, cstmrTel),
+	customerType("VIP")
+{
 }
 
-VIPCustomer::VIPCustomer(const VIPCustomer & CopyVIPCustomer):Customer(CopyVIPCustomer){
-	customerType = CopyVIPCustomer.customerType;
+VIPCustomer::VIPCustomer(const VIPCustomer & CopyVIPCustomer):										//Defining Copy Constructor
+	Customer(CopyVIPCustomer),
+	customerType("VIP")
+{
 }
 
-VIPCustomer::~VIPCustomer(){
+VIPCustomer::~VIPCustomer()																			//Defining Destructor
+{
 }
 
-int VIPCustomer::privilege = 45;
-
-void VIPCustomer::setPrivilege(int usrPrivilege){
-	privilege = usrPrivilege;
+void VIPCustomer::setPrivilege(int usrPrivilege):													//Function to set Privilege
+	customerType("VIP")
+{
 }
 
-int VIPCustomer::getPrivilege(){
+int VIPCustomer::getPrivilege()																		//Function to get Privilege
+{
 	return privilege;
 }
 
-string VIPCustomer::getCustomerType() const{
+string VIPCustomer::getCustomerType() const															//Function to get CustomerType
+{
 	return customerType;
 }
 
-void VIPCustomer::printInfo() const{
-	cout<<setw(6)<<getId()<<setw(20)<<getName()<<setw(30)<<getCarsRented()<<setw(30)<<getAddress()<<setw(20)<<getTel()<<setw(16)<<getCustomerType()<<setw(20)<<"------"<<setw(30)<<"------";
+void VIPCustomer::printInfo() const																	//Function to printInformation
+{
+	cout << "Id: " << getId()<< endl;
+	cout << "Name: " << getName()<< endl;
+	cout << "CarsRented: " << getCarsRented()<< endl;
+	cout << "Address: " << getAddress()<< endl;
+	cout << "Tel: " << getTel()<< endl;
+	cout << "CustomerType: " << getCustomerType()<< endl;
 }

@@ -2,36 +2,52 @@
 #include <iostream>
 #include <iomanip>
 
-RegularCustomer::RegularCustomer():Customer(){		//Privilege defined statically
-	customerType = "Regular";
+//Privilege defined statically
+RegularCustomer::RegularCustomer():																		//Defining Default Constructor for RegularCustomer
+	Customer()
+	customerType("Regular")
+{
 }
 
-RegularCustomer::RegularCustomer(int cstmrID, string cstmrName, string cstmrAddress, string cstmrTel):Customer(cstmrID, cstmrName, cstmrAddress, cstmrTel){
-	customerType = "Regular";
+RegularCustomer::RegularCustomer(int cstmrID, string cstmrName, string cstmrAddress, string cstmrTel):	//Defining Constructor for RegularCustomer
+	Customer(cstmrID, cstmrName, cstmrAddress, cstmrTel),
+	customerType("Regular")
+{
 }
 
-RegularCustomer::RegularCustomer(const RegularCustomer & CopyRegularCustomer):Customer(CopyRegularCustomer){
-	customerType = CopyRegularCustomer.customerType;
+RegularCustomer::RegularCustomer(const RegularCustomer & CopyRegularCustomer):							//Defining Copy Constructor for RegularCustomer
+	Customer(CopyRegularCustomer),
+	customerType(CopyRegularCustomer.customerType)
+{
 }
 
-RegularCustomer::~RegularCustomer(){
+RegularCustomer::~RegularCustomer()																		//Defining Destructor for RegularCustomer
+{
 }
 
-int RegularCustomer::privilege = 20;
-
-void RegularCustomer::setPrivilege(int usrPrivilege){
-	privilege = usrPrivilege;
+void RegularCustomer::setPrivilege(int usrPrivilege):													//Function to set Privilege
+	privilege(usrPrivilege)
+{
 }
 
-int RegularCustomer::getPrivilege(){
+int RegularCustomer::getPrivilege()																		//Function to get Privilege
+{
 	return privilege;
 }
 
-string RegularCustomer::getCustomerType() const{
+string RegularCustomer::getCustomerType() const															//Function to get CustomerType
+{
 	return customerType;
 }
 
-void RegularCustomer::printInfo() const{
-	cout<<setw(6)<<getId()<<setw(20)<<getName()<<setw(30)<<getCarsRented()<<setw(30)<<getAddress()<<setw(20)<<getTel()<<setw(16)<<getCustomerType()<<setw(20)<<"------"<<setw(30)<<"------";
+void RegularCustomer::printInfo() const																	//Function to printInformation
+{
+	cout<< "Id: " <<getId()<<endl;
+	cout<< "Name: " <<getName()<<endl;
+	cout<< "CarsRented: " <<getCarsRented()<<endl;
+	cout<< "Address: " <<getAddress()<<endl;
+	cout<< "Tel: " <<getTel()<<endl;
+	cout<< "CustomerType: " <<getCustomerType()<<endl;
+	// <<"------"<<endl;
+	// <<"------";endl
 }
-

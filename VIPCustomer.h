@@ -2,21 +2,23 @@
 #define VIPCUSTOMER_H_
 
 #include "Customer.h"
-class VIPCustomer :public Customer{
+class VIPCustomer:
+	public Customer
+{
 
 public:
-	VIPCustomer();
-	VIPCustomer(int, string, string, string);
-	VIPCustomer(const VIPCustomer &);
-	virtual ~VIPCustomer();
+	VIPCustomer();									//Declaring Default Constructor
+	VIPCustomer(int, string, string, string);		//Declaring Constructor
+	VIPCustomer(const VIPCustomer &);				//Declaring Copy Constructor
+	virtual ~VIPCustomer();							//Declaring Virtual Destructor Constructor
 
-	static void setPrivilege(int);
-	static int getPrivilege();
-	virtual string getCustomerType() const;
-	virtual void printInfo() const;
+	static void setPrivilege(int);					//Function to set Privileges
+	static int getPrivilege();						//Function to get Privileges
+	virtual string getCustomerType() const;			//Function to get CustomerType
+	virtual void printInfo() const;					//Function to printInformation
 
 private:
-	static int privilege;
+	static int privilege = 45;						//Initializing the priviliges
 };
 
 #endif

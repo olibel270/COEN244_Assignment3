@@ -2,23 +2,24 @@
 #define REGULARCUSTOMER_H_
 
 #include "Customer.h"
-class RegularCustomer :public Customer{
+class RegularCustomer:
+	public Customer
+{
 
 public:
-	RegularCustomer();
-	RegularCustomer(int, string, string, string);
-	RegularCustomer(const RegularCustomer &);
-	~RegularCustomer();
+	RegularCustomer();								//Declaring Default Constructor
+	RegularCustomer(int, string, string, string);	//Declaring Constructor
+	RegularCustomer(const RegularCustomer &);		//Declaring Copy Constructor
+	~RegularCustomer();								//Declaring Destructor
 
-	static void setPrivilege(int);
-	static int getPrivilege();
-	virtual string getCustomerType() const;
-	virtual void printInfo() const;
-
-private:
-	static int privilege;
+	static void setPrivilege(int);					//Declaring Function to set Privilege
+	static int getPrivilege();						//Declaring Function to get Privilege
+	virtual string getCustomerType() const;			//Declaring Function to get CustomerType
+	virtual void printInfo() const;					//Declaring Function to printInformation
 
 private:
+	static int privilege = 20;						//Declaring privilege statically
 
 };
+
 #endif

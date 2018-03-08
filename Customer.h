@@ -6,7 +6,8 @@
 #include "Car.h"
 using namespace std;
 
-class Customer{
+class Customer
+{
 	friend class CarRentalManagement;						//Making CarRentalManagement a friend so it can access private memebers
 
 public:
